@@ -1,3 +1,7 @@
+import styled from 'styled-components';
+
+// const Div =
+
 const Filter = ({ onChangeFilter }) => {
   return (
     <div>

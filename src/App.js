@@ -21,6 +21,9 @@ const App = () => {
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter),
   );
+  const handleDeleteContact = id => {
+    setContacts(prev => prev.filter(contact => contact.id !== id));
+  };
   return (
     <div className="App">
       <h1>Phonebook</h1>
@@ -28,7 +31,7 @@ const App = () => {
 
       <h2>Contacts</h2>
       <Filter onChangeFilter={handleChangeFilter} />
-      <ContactList contacts={visibleContacts} />
+      <ContactList contacts={visibleContacts} onDelete={handleDeleteContact} />
     </div>
   );
 };

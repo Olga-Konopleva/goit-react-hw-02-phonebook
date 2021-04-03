@@ -1,5 +1,31 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+const Button = styled.button`
+  background: transparent;
+  border-radius: 6px;
+  border: 2px solid green;
+  color: green;
+  width: 200px;
+  margin-left: 1em;
+  padding: 0.25em 1em;
+  &:hover {
+    background: LemonChiffon;
+  }
+`;
+const Span = styled.span`
+  margin-right: 10px;
+  display: inline-block;
+`;
+
+const Label = styled.label`
+  margin-bottom: 15px;
+`;
 
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
@@ -14,9 +40,9 @@ const ContactForm = ({ onSubmit }) => {
   const handleChangeName = e => setName(e.target.value);
   const handleChangeNumber = e => setNumber(e.target.value);
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <span>Name</span>
+    <Form onSubmit={handleSubmit}>
+      <Label>
+        <Span>Name</Span>
         <input
           type="text"
           name="name"
@@ -26,9 +52,9 @@ const ContactForm = ({ onSubmit }) => {
           required
           onChange={handleChangeName}
         />
-      </label>
-      <label>
-        <span>Number</span>
+      </Label>
+      <Label>
+        <Span>Number</Span>
         <input
           type="tel"
           name="number"
@@ -38,9 +64,9 @@ const ContactForm = ({ onSubmit }) => {
           required
           onChange={handleChangeNumber}
         />
-      </label>
-      <button type="submit">Add contact</button>
-    </form>
+      </Label>
+      <Button type="submit">Add contact</Button>
+    </Form>
   );
 };
 
