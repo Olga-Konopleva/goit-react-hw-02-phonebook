@@ -6,7 +6,14 @@ import Filter from './components/Filter/Filter';
 const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-  const handleAddContact = newItem => setContacts(prev => [...prev, newItem]);
+  const handleAddContact = newItem => {
+    const coincidence = contacts.some(contact => contact.name === newItem.name);
+    if (coincidence) {
+      alert(`${newItem.name} is already in contacts`);
+      return;
+    }
+    setContacts(prev => [...prev, newItem]);
+  };
   const handleChangeFilter = e => {
     setFilter(e.currentTarget.value);
   };
