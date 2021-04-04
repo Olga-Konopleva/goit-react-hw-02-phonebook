@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ContactItem from './ContactItem';
+import styled from 'styled-components';
 
 const Ul = styled.ul`
   list-style: none;
@@ -19,6 +20,11 @@ const ContactList = ({ contacts, onDelete }) => {
       ))}
     </Ul>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactList;

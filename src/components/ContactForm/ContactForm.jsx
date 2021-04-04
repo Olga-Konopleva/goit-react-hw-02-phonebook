@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import styled from 'styled-components';
 
 const Form = styled.form`
   display: flex;
@@ -68,6 +69,10 @@ const ContactForm = ({ onSubmit }) => {
       <Button type="submit">Add contact</Button>
     </Form>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

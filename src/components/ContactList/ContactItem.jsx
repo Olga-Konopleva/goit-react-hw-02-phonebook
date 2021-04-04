@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -24,6 +25,12 @@ const ContactItem = ({ name, number, onDelete }) => {
       <Button onClick={onDelete}>Delete</Button>
     </Li>
   );
+};
+
+ContactItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactItem;

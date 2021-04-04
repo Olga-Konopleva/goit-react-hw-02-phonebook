@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-// const Div =
+import PropTypes from 'prop-types';
 
 const Filter = ({ onChangeFilter }) => {
   return (
@@ -9,6 +7,10 @@ const Filter = ({ onChangeFilter }) => {
       <input type="text" onChange={onChangeFilter} />
     </div>
   );
+};
+
+Filter.propTypes = {
+  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;
