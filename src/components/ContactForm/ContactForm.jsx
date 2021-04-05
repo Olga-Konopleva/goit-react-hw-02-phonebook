@@ -31,15 +31,18 @@ const Label = styled.label`
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   const handleSubmit = e => {
     e.preventDefault();
-    const newItem = { id: uuidv4(), name, number };
-    onSubmit(newItem);
+    const newContact = { id: uuidv4(), name, number };
+    onSubmit(newContact);
     setName('');
     setNumber('');
   };
+
   const handleChangeName = e => setName(e.target.value);
   const handleChangeNumber = e => setNumber(e.target.value);
+
   return (
     <Form onSubmit={handleSubmit}>
       <Label>

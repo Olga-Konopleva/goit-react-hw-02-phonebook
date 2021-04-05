@@ -22,7 +22,9 @@ const ContactItem = ({ name, number, onDelete }) => {
   return (
     <Li>
       {name}: {number}
-      <Button onClick={onDelete}>Delete</Button>
+      <Button type="button" onClick={onDelete}>
+        Delete
+      </Button>
     </Li>
   );
 };

@@ -6,24 +6,32 @@ import Filter from './components/Filter/Filter';
 const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-  const handleAddContact = newItem => {
-    const coincidence = contacts.some(contact => contact.name === newItem.name);
+
+  const handleAddContact = newContact => {
+    const coincidence = contacts.some(
+      contact => contact.name === newContact.name,
+    );
     if (coincidence) {
-      alert(`${newItem.name} is already in contacts`);
+      alert(`${newContact.name} is already in contacts`);
       return;
     }
-    setContacts(prev => [...prev, newItem]);
+    setContacts(prev => [...prev, newContact]);
   };
+
   const handleChangeFilter = e => {
     setFilter(e.currentTarget.value);
   };
+
   const normalizedFilter = filter.toLowerCase();
+
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter),
   );
+
   const handleDeleteContact = id => {
     setContacts(prev => prev.filter(contact => contact.id !== id));
   };
+
   return (
     <div className="App">
       <h1>Phonebook</h1>
